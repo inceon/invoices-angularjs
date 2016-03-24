@@ -44,23 +44,26 @@
 # Resources
 
 ## Customers
-
-/api/customers (GET, POST)
-/api/customers/{id} (GET, PUT, DELETE)
+```
+GET|POST          /api/customers
+GET|PUT|DELETE    /api/customers/{id}
+```
 
 ## Products
-
-/api/products (GET, POST)
-/api/products/{id} (GET, PUT, DELETE)
-
+```
+GET|POST          /api/products
+GET|PUT|DELETE    /api/products/{id}
+```
 ## Invoices
-
-/api/invoices (GET, POST)
-/api/invoices/{id} (GET, PUT, DELETE)
+```
+GET|POST          /api/invoices
+GET|PUT|DELETE    /api/invoices/{id}
+```
 
 ## InvoiceItems
-
-`/api/invoices/{id}/items (GET, POST)`
-`/api/invoices/{invoice_id}/items/{id} (GET, PUT, DELETE)`
+```
+GET|POST          /api/invoices/{id}/items
+GET|PUT|DELETE    /api/invoices/{invoice_id}/items/{id}
+```
 
 
