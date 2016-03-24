@@ -60,7 +60,7 @@
 
 ## InvoiceItems
 
-/api/invoices/{id}/items (GET, POST)
-/api/invoices/{invoice_id}/items/{id} (GET, PUT, DELETE)
+`/api/invoices/{id}/items (GET, POST)`
+`/api/invoices/{invoice_id}/items/{id} (GET, PUT, DELETE)`
 
 
