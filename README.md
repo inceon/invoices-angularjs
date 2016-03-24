@@ -6,9 +6,10 @@
 
 # Getting Started
 
-| npm install
-
-| node app.js
+##### Install npm dependencies
+`npm install`
+##### Install npm dependencies
+`node app.js`
 
 # Schema
 
