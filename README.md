@@ -12,6 +12,9 @@
 ###### Run the node server
 `node app.js`
 
+###### Viewing the application in your browser
+`http://localhost:8000`
+
 # Schema
 
 ## Customers

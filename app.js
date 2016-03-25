@@ -6,9 +6,9 @@ var express = require('express'),
     _ = require('lodash');
 
 
-sequelize = new Sequelize('sqlite://' + __dirname + '/invoices.sqlite', {
+sequelize = new Sequelize('sqlite://' + path.join(__dirname, 'invoices.sqlite'), {
   dialect: 'sqlite',
-  storage: __dirname + '/invoices.sqlite'
+  storage: path.join(__dirname, 'invoices.sqlite')
 });
 
 Customer = sequelize.define('customers', { 
@@ -247,7 +247,7 @@ app.route('/api/invoices/:invoice_id/items/:id')
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 /**
