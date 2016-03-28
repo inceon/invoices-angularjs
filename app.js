@@ -244,7 +244,7 @@ app.route('/api/invoices/:invoice_id')
 
 app.route('/api/invoices/:invoice_id/items')
   .get(function(req, res) {
-    InvoiceItem.findAll({ invoice_id: req.params.invoice_id }).then(function(invoice_items) {
+    InvoiceItem.findAll({where: { invoice_id: req.params.invoice_id }}).then(function(invoice_items) {
       res.json(invoice_items);
     })
   })
