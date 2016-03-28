@@ -59,7 +59,7 @@ Invoice = sequelize.define('invoices', {
   }
 });
 
-InvoiceItems = sequelize.define('invoice_items', {
+InvoiceItem = sequelize.define('invoice_items', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
