@@ -3,12 +3,13 @@
         .module('app')
         .config(mainConfig);
 
-    mainConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$resourceProvider'];
+    mainConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$resourceProvider', '$httpProvider'];
 
-    function mainConfig($stateProvider, $urlRouterProvider, $resourceProvider) {
+    function mainConfig($stateProvider, $urlRouterProvider, $resourceProvider, $httpProvider) {
 
         // Don't strip trailing slashes from calculated URLs
         $resourceProvider.defaults.stripTrailingSlashes = false;
+        $httpProvider.interceptors.push('request');
 
         $urlRouterProvider.otherwise('/');
 

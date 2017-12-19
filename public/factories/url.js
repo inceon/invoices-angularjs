@@ -9,7 +9,9 @@
         var baseUrl = '/api/';
 
         return {
-            invoices:   baseUrl + 'invoices'
+            invoices:   baseUrl + 'invoices',
+            products:   baseUrl + 'products',
+            customers:  baseUrl + 'customers'
         };
     }
 
