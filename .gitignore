@@ -1,2 +1,8 @@
 node_modules
 invoices.sqlite
+public/libs
+tmp
+.DS_Store
+.idea
+logs/*
+!.gitkeep
