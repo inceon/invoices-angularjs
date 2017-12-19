@@ -5,20 +5,31 @@
         .controller('NewInvoiceController', NewInvoiceController);
 
 
-    NewInvoiceController.$inject = ['invoices', 'customersData', 'productsData'];
+    NewInvoiceController.$inject = ['$stateParams', 'invoices', 'invoiceItems', 'customersData', 'productsData'];
 
-    function NewInvoiceController(invoices, customersData, productsData) {
+    function NewInvoiceController($stateParams, invoices, invoiceItems, customersData, productsData) {
         var vm = this;
 
         vm.products = productsData;
         vm.customers = customersData;
+        vm.currentInvoice = undefined;
+
         vm.data = {
             customer_id: undefined,
             products: [],
             discount: 0
         };
 
-        vm.currentInvoice = undefined;
+        if ($stateParams.id) {
+            invoices.get($stateParams, function(invoice){
+                vm.currentInvoice = invoice;
+                angular.extend(vm.data, invoice);
+            });
+            vm.data.products = invoiceItems.query({
+                invoice_id: $stateParams.id
+            });
+
+        }
 
         vm.addProduct = addProduct;
         vm.changeProductCount = changeProductCount;
@@ -40,8 +51,9 @@
 
         function changeProductCount(product, col) {
             product.count += col;
-
             product.count = Math.max(product.count, 1);
+
+            // invoiceItems
 
             saveInvoice();
         }

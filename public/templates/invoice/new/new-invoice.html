@@ -22,18 +22,18 @@
         <tr>
             <th>Name</th>
             <th>Price</th>
-            <th>Count</th>
+            <th>Quantity</th>
             <th>Actions</th>
         </tr>
         <tr ng-repeat="product in vm.data.products">
             <td>{{ ::product.item.name }}</td>
             <td>{{ ::product.item.price }}</td>
             <td>
-                {{ product.count }}
+                {{ product.quantity }}
             </td>
             <td>
-                <span class="btn btn-success btn-xs glyphicon glyphicon-plus" ng-click="vm.changeProductCount(product, 1)"></span>
-                <span class="btn btn-success btn-xs glyphicon glyphicon-minus" ng-click="vm.changeProductCount(product, -1)"></span>
+                <span class="btn btn-success btn-xs glyphicon glyphicon-plus" ng-click="vm.changeProductQuantity(product, 1)"></span>
+                <span class="btn btn-success btn-xs glyphicon glyphicon-minus" ng-click="vm.changeProductQuantity(product, -1)"></span>
                 <span class="btn btn-danger btn-xs glyphicon glyphicon-remove" ng-click="vm.deleteProduct(product, $index)"></span>
             </td>
         </tr>

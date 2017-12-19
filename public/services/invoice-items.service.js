@@ -11,7 +11,8 @@
     function invoiceItems($resource, url) {
 
         return $resource(url.invoiceItems, {
-            id:'@id'
+            invoice_id : '@invoice_id',
+            id         : '@id',
         }, {
             update: {
                 method: 'PUT'
