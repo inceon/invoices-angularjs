@@ -39,6 +39,9 @@
                 resolve: {
                     productsData: function (products) {
                         return products.query();
+                    },
+                    customersData: function (customers) {
+                        return customers.query();
                     }
                 }
             })
