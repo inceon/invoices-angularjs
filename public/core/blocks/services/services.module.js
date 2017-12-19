@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('blocks.services', [
-        'service.invoices'
+        'service.invoices',
+        'service.products'
     ]);
 
 })();
