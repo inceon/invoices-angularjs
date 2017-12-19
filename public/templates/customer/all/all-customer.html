@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+    </tr>
+    <tr ng-repeat="customer in vm.customers track by $index">
+        <td>{{ ::customer.id }}</td>
+        <td>{{ ::customer.name }}</td>
+        <td>{{ ::customer.address }}</td>
+        <td>{{ ::customer.phone }}</td>
+    </tr>
+</table>

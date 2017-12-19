@@ -71,6 +71,22 @@
                         return products.query();
                     }
                 }
+            })
+            .state('customer', {
+                url: '/customer',
+                abstract: true,
+                template: '<ui-view/>'
+            })
+            .state('customer.all', {
+                url: '/all',
+                templateUrl: 'templates/customer/all/all-customer.html',
+                controller: 'AllCustomerController',
+                controllerAs: 'vm',
+                resolve: {
+                    customersData: function (customers) {
+                        return customers.query();
+                    }
+                }
             });
 
 
