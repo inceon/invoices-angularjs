@@ -1,16 +1,16 @@
-<span class="btn btn-success btn-xs" ui-sref="invoice.new">Add new invoice</span>
+<span class="btn btn-success btn-sm" ui-sref="invoice.new">Add new invoice</span>
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
+        <th>Total</th>
+        <th>Discount</th>
         <th>Created at</th>
         <th>Updated at</th>
     </tr>
     <tr ng-repeat="invoice in vm.invoices track by $index">
         <td>{{ ::invoice.id }}</td>
-        <td>{{ ::invoice.name }}</td>
-        <td>{{ ::invoice.price }}</td>
+        <td>{{ ::invoice.total }}</td>
+        <td>{{ ::invoice.discount }}</td>
         <td>{{ ::invoice.createdAt }}</td>
         <td>{{ ::invoice.updatedAt }}</td>
     </tr>
