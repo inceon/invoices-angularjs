@@ -10,7 +10,13 @@
 
     function invoices($resource, url) {
 
-        return $resource(url.invoices + '/:id', {id:'@id'});
+        return $resource(url.invoices + '/:id', {
+            id:'@id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
 
     }
 })();

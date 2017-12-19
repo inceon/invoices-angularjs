@@ -1,6 +1,6 @@
 <form name="invoiceForm">
     <div class="form-group">
-        <select class="form-control" ng-model="vm.data.customer_id" required>
+        <select class="form-control" ng-model="vm.data.customer_id" ng-change="vm.saveInvoice()" required>
             <option value="" selected disabled>Select customer</option>
             <option ng-value="customer.id" ng-repeat="customer in vm.customers">{{ customer.name }} ({{ customer.phone }})</option>
         </select>
@@ -47,6 +47,7 @@
     <div class="input-group">
         <input type="number"
                ng-model="vm.data.discount"
+               ng-change="vm.saveInvoice()"
                name="discount"
                class="form-control"
                min="0"
