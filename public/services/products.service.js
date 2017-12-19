@@ -10,7 +10,13 @@
 
     function products($resource, url) {
 
-        return $resource(url.products, {id:'@id'});
+        return $resource(url.products, {
+            id:'@id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
 
     }
 })();

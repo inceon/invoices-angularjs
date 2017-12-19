@@ -10,7 +10,13 @@
 
     function customers($resource, url) {
 
-        return $resource(url.customers, {id:'@id'});
+        return $resource(url.customers, {
+            id:'@id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
 
     }
 })();
