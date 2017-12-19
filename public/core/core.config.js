@@ -22,7 +22,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     invoicesData: function (invoices) {
-                        return invoices.query();
+                        return invoices.query().$promise;
                     }
                 }
             })
@@ -38,10 +38,24 @@
                 controllerAs: 'vm',
                 resolve: {
                     productsData: function (products) {
-                        return products.query();
+                        return products.query().$promise;
                     },
                     customersData: function (customers) {
-                        return customers.query();
+                        return customers.query().$promise;
+                    }
+                }
+            })
+            .state('invoice.edit', {
+                url: '/edit/:id',
+                templateUrl: 'templates/invoice/new/new-invoice.html',
+                controller: 'NewInvoiceController',
+                controllerAs: 'vm',
+                resolve: {
+                    productsData: function (products) {
+                        return products.query().$promise;
+                    },
+                    customersData: function (customers) {
+                        return customers.query().$promise;
                     }
                 }
             })
@@ -52,7 +66,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     invoicesData: function (invoices) {
-                        return invoices.query();
+                        return invoices.query().$promise;
                     }
                 }
             })
@@ -68,7 +82,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     productsData: function (products) {
-                        return products.query();
+                        return products.query().$promise;
                     }
                 }
             })
@@ -84,7 +98,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     customersData: function (customers) {
-                        return customers.query();
+                        return customers.query().$promise;
                     }
                 }
             });
