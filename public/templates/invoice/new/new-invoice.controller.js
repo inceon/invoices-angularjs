@@ -5,9 +5,9 @@
         .controller('NewInvoiceController', NewInvoiceController);
 
 
-    NewInvoiceController.$inject = ['$stateParams', 'invoices', 'invoiceItems', 'customersData', 'productsData'];
+    NewInvoiceController.$inject = ['$stateParams', 'invoices', 'products', 'invoiceItems', 'customersData', 'productsData'];
 
-    function NewInvoiceController($stateParams, invoices, invoiceItems, customersData, productsData) {
+    function NewInvoiceController($stateParams, invoices, products, invoiceItems, customersData, productsData) {
         var vm = this;
 
         vm.products = productsData;
@@ -25,23 +25,42 @@
                 vm.currentInvoice = invoice;
                 angular.extend(vm.data, invoice);
             });
-            vm.data.products = invoiceItems.query({
-                invoice_id: $stateParams.id
-            });
 
+            var tempItems = invoiceItems.query({
+                invoice_id: $stateParams.id
+            }, function () {
+                tempItems.forEach(function (el) {
+                    products.get({
+                        id: el.product_id
+                    }, function (product) {
+                        vm.data.products.push({
+                            quantity: el.quantity,
+                            item: product,
+                            entry: el
+                        });
+                    })
+                })
+            });
         }
 
         vm.addProduct = addProduct;
-        vm.changeProductCount = changeProductCount;
+        vm.changeProductQuantity = changeProductQuantity;
         vm.deleteProduct = deleteProduct;
         vm.totalPrice = totalPrice;
         vm.saveInvoice = saveInvoice;
 
         function addProduct(productItem) {
             if (productItem && !productItem.selected) {
+                var entry = new invoiceItems({
+                    invoice_id: vm.currentInvoice.id * 1,
+                    product_id: productItem.id,
+                    quantity: 1
+                });
+                entry.$save();
                 vm.data.products.push({
                     item: productItem,
-                    count: 1
+                    entry: entry,
+                    quantity: 1
                 });
 
                 productItem.selected = true;
@@ -49,17 +68,19 @@
             }
         }
 
-        function changeProductCount(product, col) {
-            product.count += col;
-            product.count = Math.max(product.count, 1);
+        function changeProductQuantity(product, col) {
+            product.quantity += col;
+            product.quantity = Math.max(product.quantity, 1);
 
-            // invoiceItems
+            product.entry.quantity = product.quantity;
+            product.entry.$update();
 
             saveInvoice();
         }
 
         function deleteProduct(product, index) {
             product.item.selected = false;
+            product.entry.$delete();
             vm.data.products.splice(index, 1);
 
             saveInvoice();
@@ -69,7 +90,7 @@
             var total = 0;
             if (vm.data.products.length) {
                 total += vm.data.products.reduce(function (accumulator, product) {
-                    return (accumulator + (product.item.price * product.count));
+                    return (accumulator + (product.item.price * product.quantity));
                 }, 0);
             }
             if (vm.data.discount) {
