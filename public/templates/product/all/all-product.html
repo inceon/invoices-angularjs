@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+    </tr>
+    <tr ng-repeat="product in vm.products track by $index">
+        <td>{{ ::product.id }}</td>
+        <td>{{ ::product.name }}</td>
+        <td>{{ ::product.price }}</td>
+        <td>{{ ::product.createdAt }}</td>
+        <td>{{ ::product.updatedAt }}</td>
+    </tr>
+</table>

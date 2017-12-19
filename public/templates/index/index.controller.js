@@ -10,6 +10,7 @@
     function IndexController(invoicesData) {
         var vm = this;
 
-        vm.invoices = invoicesData
+        vm.invoices = invoicesData;
+
     }
 })();
