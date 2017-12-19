@@ -10,7 +10,7 @@
 
     function products($resource, url) {
 
-        return $resource(url.products + '/:id', {id:'@id'});
+        return $resource(url.products, {id:'@id'});
 
     }
 })();

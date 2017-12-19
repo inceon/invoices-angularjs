@@ -10,7 +10,7 @@
 
     function customers($resource, url) {
 
-        return $resource(url.customers + '/:id', {id:'@id'});
+        return $resource(url.customers, {id:'@id'});
 
     }
 })();

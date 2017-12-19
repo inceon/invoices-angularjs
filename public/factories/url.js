@@ -9,9 +9,10 @@
         var baseUrl = '/api/';
 
         return {
-            invoices:   baseUrl + 'invoices',
-            products:   baseUrl + 'products',
-            customers:  baseUrl + 'customers'
+            invoices:       baseUrl + 'invoices/:id',
+            invoiceItems:   baseUrl + 'invoices/:invoice_id/items/:id',
+            products:       baseUrl + 'products/:id',
+            customers:      baseUrl + 'customers/:id'
         };
     }
 

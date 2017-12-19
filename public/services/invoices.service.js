@@ -10,7 +10,7 @@
 
     function invoices($resource, url) {
 
-        return $resource(url.invoices + '/:id', {
+        return $resource(url.invoices, {
             id:'@id'
         }, {
             update: {
