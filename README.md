@@ -9,6 +9,10 @@
 ###### Install npm dependencies
 `npm install`
 
+###### Install bower dependencies
+`npm install -g bower`
+`bower install`
+
 ###### Run the node server
 `node app.js`
 
