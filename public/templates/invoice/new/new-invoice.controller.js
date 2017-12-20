@@ -56,6 +56,7 @@
         vm.deleteProduct = deleteProduct;
         vm.totalPrice = totalPrice;
         vm.saveInvoice = saveInvoice;
+        vm.addNewCustomer = addNewCustomer;
 
         /**
          * Adding product to invoice
@@ -148,6 +149,10 @@
             $timeout(function () {
                 vm.isSaved = true;
             }, 400);
+        }
+
+        function addNewCustomer() {
+            vm.addingNewCustomerProcess = !vm.addingNewCustomerProcess;
         }
 
     }

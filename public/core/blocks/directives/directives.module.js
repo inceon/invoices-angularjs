@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('blocks.directives', [
-        'directive.saving-process'
+        'directive.saving-process',
+        'directive.create-customer'
     ]);
 
 })();

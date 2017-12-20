@@ -2,12 +2,22 @@
 
     <saving-process created="vm.isCreated" saved="vm.isSaved"></saving-process>
 
-    <div class="form-group">
-        <select class="form-control" ng-model="vm.data.customer_id" ng-change="vm.saveInvoice()" required>
-            <option value="" selected disabled>Select customer</option>
-            <option ng-value="customer.id" ng-repeat="customer in vm.customers">{{ customer.name }} ({{ customer.phone }})</option>
-        </select>
+    <!--select for customers-->
+    <div class="form-group row">
+        <div class="col-md-11">
+            <select class="form-control" ng-model="vm.data.customer_id" ng-change="vm.saveInvoice()" required>
+                <option value="" selected disabled>Select customer</option>
+                <option ng-value="customer.id" ng-repeat="customer in vm.customers">{{ customer.name }} ({{ customer.phone }})</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-default btn-block" type="button" ng-click="vm.addNewCustomer()">New</button>
+        </div>
     </div>
+
+    <create-customer ng-if="vm.addingNewCustomerProcess"
+                     flag="vm.addingNewCustomerProcess"
+                     customers="vm.customers"></create-customer>
 
     <div class="form-group row">
         <div class="col-md-11">
