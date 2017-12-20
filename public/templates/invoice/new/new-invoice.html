@@ -27,10 +27,16 @@
             </select>
         </div>
         <div class="col-md-1">
-            <button class="btn btn-default btn-block" type="button" ng-click="vm.addProduct(vm.productItem)">Add</button>
+            <button class="btn btn-default btn-block"
+                    type="button"
+                    ng-click="vm.addProduct(vm.productItem)"
+                    ng-disabled="!vm.data.customer_id">Add</button>
         </div>
         <div class="col-md-1">
-            <button class="btn btn-default btn-block" type="button" ng-click="vm.addNewProduct()">New</button>
+            <button class="btn btn-default btn-block"
+                    type="button"
+                    ng-click="vm.addNewProduct()"
+                    ng-disabled="!vm.data.customer_id">New</button>
         </div>
     </div>
 
