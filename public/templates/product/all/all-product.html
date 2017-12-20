@@ -5,12 +5,13 @@
         <th>Price</th>
         <th>Actions</th>
     </tr>
-    <tr ng-repeat="product in vm.products track by $index">
+    <tr ng-repeat="product in vm.products">
         <td>{{ ::product.id }}</td>
         <td>{{ ::product.name }}</td>
         <td>{{ ::product.price }}</td>
         <td>
             <span class="btn btn-info btn-xs glyphicon glyphicon-pencil" ui-sref="product.edit({id: product.id})"></span>
+            <span class="btn btn-danger btn-xs glyphicon glyphicon-remove" ng-click="vm.deleteProduct(product, $index)"></span>
         </td>
     </tr>
 </table>

@@ -10,6 +10,14 @@
         var vm = this;
 
         vm.products = productsData;
+        vm.deleteProduct = deleteProduct;
+        
+        function deleteProduct(product, index) {
+            if(confirm("Are you really want to delete this product?")) {
+                product.$delete();
+                vm.products.splice(index, 1);
+            }
+        }
 
     }
 })();
