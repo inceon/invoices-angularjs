@@ -57,6 +57,7 @@
         vm.totalPrice = totalPrice;
         vm.saveInvoice = saveInvoice;
         vm.addNewCustomer = addNewCustomer;
+        vm.addNewProduct = addNewProduct;
 
         /**
          * Adding product to invoice
@@ -153,6 +154,10 @@
 
         function addNewCustomer() {
             vm.addingNewCustomerProcess = !vm.addingNewCustomerProcess;
+        }
+
+        function addNewProduct() {
+            vm.addingNewProductProcess = !vm.addingNewProductProcess;
         }
 
     }

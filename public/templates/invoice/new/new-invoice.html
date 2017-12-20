@@ -20,7 +20,7 @@
                      customers="vm.customers"></create-customer>
 
     <div class="form-group row">
-        <div class="col-md-11">
+        <div class="col-md-10">
             <select class="form-control" ng-model="vm.productItem" ng-disabled="!vm.data.customer_id" required>
                 <option value="" selected disabled>Select Product</option>
                 <option ng-value="product" ng-repeat="product in vm.products" ng-if="!product.selected">{{ product.name }} ({{ product.price }})</option>
@@ -29,7 +29,14 @@
         <div class="col-md-1">
             <button class="btn btn-default btn-block" type="button" ng-click="vm.addProduct(vm.productItem)">Add</button>
         </div>
+        <div class="col-md-1">
+            <button class="btn btn-default btn-block" type="button" ng-click="vm.addNewProduct()">New</button>
+        </div>
     </div>
+
+    <create-product ng-if="vm.addingNewProductProcess"
+                    flag="vm.addingNewProductProcess"
+                    products="vm.products"></create-product>
 
     <table class="table table-bordered" ng-if="vm.data.products.length">
         <tr>
