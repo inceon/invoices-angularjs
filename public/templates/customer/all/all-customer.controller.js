@@ -11,5 +11,14 @@
 
         vm.customers = customersData;
 
+        vm.deleteCustomer = deleteCustomer;
+
+        function deleteCustomer(customer, index) {
+            if(confirm("Are you really want to delete this customer?")) {
+                customer.$delete();
+                vm.customers.splice(index, 1);
+            }
+        }
+
     }
 })();

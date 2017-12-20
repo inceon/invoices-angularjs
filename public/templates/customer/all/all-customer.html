@@ -6,13 +6,14 @@
         <th>Phone</th>
         <th>Action</th>
     </tr>
-    <tr ng-repeat="customer in vm.customers track by $index">
+    <tr ng-repeat="customer in vm.customers">
         <td>{{ ::customer.id }}</td>
         <td>{{ ::customer.name }}</td>
         <td>{{ ::customer.address }}</td>
         <td>{{ ::customer.phone }}</td>
         <td>
             <span class="btn btn-info btn-xs glyphicon glyphicon-pencil" ui-sref="customer.edit({id: customer.id})"></span>
+            <span class="btn btn-danger btn-xs glyphicon glyphicon-remove" ng-click="vm.deleteCustomer(customer, $index)"></span>
         </td>
     </tr>
 </table>
