@@ -9,15 +9,13 @@
     </div>
 
     <div class="form-group">
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Name</span>
-            <input type="text"
-                   class="form-control"
-                   ng-model="vm.data.name"
-                   ng-change="vm.saveProduct()"
-                   aria-describedby="basic-addon1"
-                   required>
-        </div>
+        <label for="basic-addon1">Name</label>
+        <input type="text"
+               class="form-control"
+               ng-model="vm.data.name"
+               ng-change="vm.saveProduct()"
+               id="basic-addon1"
+               required>
     </div>
 
     <div class="form-group">
@@ -26,15 +24,13 @@
             <span class="sr-only">Error:</span>
             Enter a valid price
         </div>
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon2">Price</span>
-            <input type="number"
-                   ng-model="vm.data.price"
-                   ng-change="vm.saveProduct()"
-                   name="price"
-                   class="form-control"
-                   min="0"
-                   aria-describedby="basic-addon2">
-        </div>
+        <label for="basic-addon2">Price</label>
+        <input type="number"
+               ng-model="vm.data.price"
+               ng-change="vm.saveProduct()"
+               name="price"
+               class="form-control"
+               min="0"
+               id="basic-addon2">
     </div>
 </form>
