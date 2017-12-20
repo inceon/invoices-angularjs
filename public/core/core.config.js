@@ -112,6 +112,17 @@
                         return customers.query().$promise;
                     }
                 }
+            })
+            .state('customer.edit', {
+                url: '/edit/:id',
+                templateUrl: 'templates/customer/edit/edit-customer.html',
+                controller: 'EditCustomerController',
+                controllerAs: 'vm',
+                resolve: {
+                    customerData: function (customers, $stateParams) {
+                        return customers.get($stateParams).$promise;
+                    }
+                }
             });
 
 

@@ -4,11 +4,15 @@
         <th>Name</th>
         <th>Address</th>
         <th>Phone</th>
+        <th>Action</th>
     </tr>
     <tr ng-repeat="customer in vm.customers track by $index">
         <td>{{ ::customer.id }}</td>
         <td>{{ ::customer.name }}</td>
         <td>{{ ::customer.address }}</td>
         <td>{{ ::customer.phone }}</td>
+        <td>
+            <span class="btn btn-info btn-xs glyphicon glyphicon-pencil" ui-sref="customer.edit({id: customer.id})"></span>
+        </td>
     </tr>
 </table>
