@@ -17,6 +17,9 @@
 
         vm.saveCustomer = saveCustomer;
 
+        /**
+         * Saving customer data to server
+         */
         function saveCustomer() {
             vm.isSaved = false;
 

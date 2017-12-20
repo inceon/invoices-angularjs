@@ -17,6 +17,9 @@
 
         vm.saveProduct = saveProduct;
 
+        /**
+         * Saving product data to server
+         */
         function saveProduct() {
             vm.isSaved = false;
 

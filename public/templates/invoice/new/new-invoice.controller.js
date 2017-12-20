@@ -22,6 +22,12 @@
             discount: 0
         };
 
+        /**
+         * `Edit mode`
+         * If this $stateParams contain `id`
+         * Then get information from server about invoice
+         * And product in thi invoice
+         */
         if ($stateParams.id) {
             invoices.get($stateParams, function(invoice){
                 vm.currentInvoice = invoice;
@@ -51,8 +57,13 @@
         vm.totalPrice = totalPrice;
         vm.saveInvoice = saveInvoice;
 
+        /**
+         * Adding product to invoice
+         * @param productItem - product object
+         */
         function addProduct(productItem) {
             if (productItem && !productItem.selected) {
+                // creating entry on the server
                 var entry = new invoiceItems({
                     invoice_id: vm.currentInvoice.id * 1,
                     product_id: productItem.id,
@@ -65,11 +76,17 @@
                     quantity: 1
                 });
 
+                // select current, so you can't select this twice
                 productItem.selected = true;
                 saveInvoice();
             }
         }
 
+        /**
+         * Changing product quantity
+         * @param product - product object
+         * @param {int} col - number of quantity
+         */
         function changeProductQuantity(product, col) {
             product.quantity += col;
             product.quantity = Math.max(product.quantity, 1);
@@ -80,6 +97,11 @@
             saveInvoice();
         }
 
+        /**
+         * Deleting product from invoice
+         * @param product - product object
+         * @param index - index product in vm.products array
+         */
         function deleteProduct(product, index) {
             product.item.selected = false;
             product.entry.$delete();
@@ -88,6 +110,10 @@
             saveInvoice();
         }
 
+        /**
+         * Total cost calculation
+         * @returns {int} - total cost
+         */
         function totalPrice() {
             var total = 0;
             if (vm.data.products.length) {
@@ -102,6 +128,10 @@
             return total.toFixed(2);
         }
 
+        /**
+         * Saving invoice to the server
+         * Or create if this doesn't exist
+         */
         function saveInvoice() {
             vm.isSaved = false;
             if (vm.currentInvoice) {

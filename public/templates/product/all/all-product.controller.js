@@ -11,7 +11,12 @@
 
         vm.products = productsData;
         vm.deleteProduct = deleteProduct;
-        
+
+        /**
+         * Deleting product
+         * @param product - product object
+         * @param index - index product in vm.products array
+         */
         function deleteProduct(product, index) {
             if(confirm("Are you really want to delete this product?")) {
                 product.$delete();

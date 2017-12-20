@@ -13,6 +13,11 @@
 
         vm.deleteInvoice = deleteInvoice;
 
+        /**
+         * Deleting invoice
+         * @param invoice - invoice object
+         * @param index - index invoice in vm.invoices array
+         */
         function deleteInvoice(invoice, index) {
             if(confirm("Are you really want to delete this invoice?")) {
                 invoice.$delete();

@@ -13,6 +13,11 @@
 
         vm.deleteCustomer = deleteCustomer;
 
+        /**
+         * Deleting customer
+         * @param customer - customer object
+         * @param index - index customer in vm.customers array
+         */
         function deleteCustomer(customer, index) {
             if(confirm("Are you really want to delete this customer?")) {
                 customer.$delete();
