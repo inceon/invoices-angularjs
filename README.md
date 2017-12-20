@@ -10,7 +10,7 @@
 `npm install`
 
 ###### Install bower dependencies
-`npm install -g bower`
+`npm install -g bower` <br>
 `bower install`
 
 ###### Run the node server
