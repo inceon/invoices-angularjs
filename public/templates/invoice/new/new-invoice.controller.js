@@ -5,14 +5,16 @@
         .controller('NewInvoiceController', NewInvoiceController);
 
 
-    NewInvoiceController.$inject = ['$stateParams', 'invoices', 'products', 'invoiceItems', 'customersData', 'productsData'];
+    NewInvoiceController.$inject = ['$stateParams', '$timeout', 'invoices', 'products', 'invoiceItems', 'customersData', 'productsData'];
 
-    function NewInvoiceController($stateParams, invoices, products, invoiceItems, customersData, productsData) {
+    function NewInvoiceController($stateParams, $timeout, invoices, products, invoiceItems, customersData, productsData) {
         var vm = this;
 
         vm.products = productsData;
         vm.customers = customersData;
         vm.currentInvoice = undefined;
+        vm.isSaved = false;
+        vm.isCreated = false;
 
         vm.data = {
             customer_id: undefined,
@@ -101,6 +103,7 @@
         }
 
         function saveInvoice() {
+            vm.isSaved = false;
             if (vm.currentInvoice) {
                 vm.currentInvoice.customer_id = vm.data.customer_id;
                 vm.currentInvoice.discount = vm.data.discount;
@@ -111,6 +114,10 @@
                 vm.currentInvoice = new invoices(vm.data);
                 vm.currentInvoice.$save();
             }
+            vm.isCreated = true;
+            $timeout(function () {
+                vm.isSaved = true;
+            }, 400);
         }
 
     }

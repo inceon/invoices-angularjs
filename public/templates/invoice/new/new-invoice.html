@@ -1,4 +1,11 @@
 <form name="invoiceForm">
+    <div class="pull-right" style="padding-bottom: 7px;" ng-if="vm.isCreated && vm.isSaved">
+        Saved!
+    </div>
+    <div class="pull-right" style="padding-bottom: 7px;" ng-if="vm.isCreated && !vm.isSaved">
+        Saving...
+    </div>
+
     <div class="form-group">
         <select class="form-control" ng-model="vm.data.customer_id" ng-change="vm.saveInvoice()" required>
             <option value="" selected disabled>Select customer</option>
