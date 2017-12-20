@@ -86,6 +86,17 @@
                     }
                 }
             })
+            .state('product.edit', {
+                url: '/edit/:id',
+                templateUrl: 'templates/product/edit/edit-product.html',
+                controller: 'EditProductController',
+                controllerAs: 'vm',
+                resolve: {
+                    productData: function (products, $stateParams) {
+                        return products.get($stateParams).$promise;
+                    }
+                }
+            })
             .state('customer', {
                 url: '/customer',
                 abstract: true,

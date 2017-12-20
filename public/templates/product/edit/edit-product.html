@@ -1,0 +1,40 @@
+<form name="productForm">
+    <div class="row">
+        <div class="col-md-1 pull-right" style="padding-bottom: 7px;" ng-if="vm.isCreated && vm.isSaved">
+            Saved!
+        </div>
+        <div class="col-md-1 pull-right" style="padding-bottom: 7px;" ng-if="vm.isCreated && !vm.isSaved">
+            Saving...
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Name</span>
+            <input type="text"
+                   class="form-control"
+                   ng-model="vm.data.name"
+                   ng-change="vm.saveProduct()"
+                   aria-describedby="basic-addon1"
+                   required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="alert alert-danger" role="alert" ng-if="!productForm.price.$valid">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            Enter a valid price
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2">Price</span>
+            <input type="number"
+                   ng-model="vm.data.price"
+                   ng-change="vm.saveProduct()"
+                   name="price"
+                   class="form-control"
+                   min="0"
+                   aria-describedby="basic-addon2">
+        </div>
+    </div>
+</form>

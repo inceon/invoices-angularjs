@@ -3,14 +3,14 @@
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Created at</th>
-        <th>Updated at</th>
+        <th>Actions</th>
     </tr>
     <tr ng-repeat="product in vm.products track by $index">
         <td>{{ ::product.id }}</td>
         <td>{{ ::product.name }}</td>
         <td>{{ ::product.price }}</td>
-        <td>{{ ::product.createdAt }}</td>
-        <td>{{ ::product.updatedAt }}</td>
+        <td>
+            <span class="btn btn-info btn-xs glyphicon glyphicon-pencil" ui-sref="product.edit({id: product.id})"></span>
+        </td>
     </tr>
 </table>
