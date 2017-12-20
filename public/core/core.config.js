@@ -12,7 +12,6 @@
         $httpProvider.interceptors.push('request');
 
         $urlRouterProvider.otherwise('/');
-        $urlRouterProvider.when('/');
 
         $stateProvider
             .state('app', {
