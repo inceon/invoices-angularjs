@@ -11,5 +11,14 @@
 
         vm.invoices = invoicesData;
 
+        vm.deleteInvoice = deleteInvoice;
+
+        function deleteInvoice(invoice, index) {
+            if(confirm("Are you really want to delete this invoice?")) {
+                invoice.$delete();
+                vm.invoices.splice(index, 1);
+            }
+        }
+
     }
 })();
